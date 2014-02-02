@@ -1,0 +1,52 @@
+{
+  "name": "Горячие клавиши для Яндекс.Музыка",
+  "version": "0.1.1",
+  "manifest_version": 2,
+  "description": "Позволяет управлять плеером Яндекс.Музыка при помощи горячих клавиш",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "author": "Konstantin Suvorov",
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "http://music.yandex.ru/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://music.yandex.ru/"
+      ],
+      "js": [
+        "js/inject.js"
+      ]
+    }
+  ],
+  "commands": {
+    "next-track": {
+      "suggested_key": {
+        "default": "MediaNextTrack"
+      },
+      "description": "Следующая песня"
+    },
+    "prev-track": {
+      "suggested_key": {
+        "default": "MediaPrevTrack"
+      },
+      "description": "Предыдущая песня"
+    },
+    "play-pause": {
+      "suggested_key": {
+        "default": "MediaPlayPause"
+      },
+      "description": "Воспроизведение/пауза"
+    }
+  }
+
+}
